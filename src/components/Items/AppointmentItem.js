@@ -74,10 +74,6 @@ export class AppointmentItem extends Component {
                         value={this.state.maintenanceType}
                         onChange={this.onChange}
                         required
-                    ></input>                
-                    <input className="btnSubmit"
-                        type="submit" 
-                        value="Add Appointment"      
                     ></input>
                     <div>
                         <button onClick={this.toggleEditing} className="Btn"><FcCancel /></button>
