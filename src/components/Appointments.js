@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppointmentsItem from './AppointmentItem';
+import AppointmentsItem from './Items/AppointmentItem';
 import PropTypes from 'prop-types';
 
 class Appointments extends Component {

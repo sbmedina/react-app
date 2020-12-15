@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { MdDelete } from 'react-icons/md'
+import { AiFillEdit } from 'react-icons/ai'
 
 export class AppointmentItem extends Component {
     getStyle = () => {
@@ -27,7 +29,7 @@ export class AppointmentItem extends Component {
     }
 
     render() {
-        const {appoint} = this.props.appointments;
+        const {id} = this.props.appointments;
         return (
             <div>               
                 <ul style={this.getStyle()}>
@@ -38,7 +40,8 @@ export class AppointmentItem extends Component {
                     <li style={this.liStyle()}>{ this.props.appointments.estimatedTime }</li>
                     <li style={this.liStyle()}>{ this.props.appointments.maintenanceType }</li>                    
                     <div>
-                        <button onClick={this.props.delAppointment.bind(this, appoint)} style={btnStyle}>x</button>
+                        <button onClick={this.props.delAppointment.bind(this, id)} style={btnStyle}><MdDelete/></button>
+                        <button style={btnStyle}><AiFillEdit/></button>
                     </div>    
                 </ul>
             </div>
@@ -51,10 +54,10 @@ AppointmentItem.propTypes = {
 }
 
 const btnStyle = {
-    background: 'red',
-    color: 'white',
+    background: 'rgb(239,232,216)',
+    color: 'black',
     border: 'none',
-    padding: ' 5px 10px',
+    padding: ' 15px 15px',
     cursor: 'pointer'
 }
 
