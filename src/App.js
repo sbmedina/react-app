@@ -4,10 +4,20 @@ import Appointments from './components/Appointments';
 import Header from './components/layout/Header';
 import mockAppointments from './mock/MOCK_DATA.json';
 import AddAppointment from './components/AddAppointment/AddAppointment';
-import uuid from 'uuid';
 
 class App extends Component {
   state = {mockAppointments}
+
+  updateAppointment = (editAppointment) => {
+    this.setState({
+      mockAppointments: [...this.state.mockAppointments.map(appointments => {
+        if(appointments.id === editAppointment.id) {
+          appointments = editAppointment;
+        }
+        return appointments;
+      })]
+    });
+  }
 
   delAppointment = (id) => {
     this.setState({ mockAppointments: [...this.state.mockAppointments.filter(appointments => appointments.id !==id)] });
@@ -32,6 +42,7 @@ class App extends Component {
           <Header />
           <Appointments 
             appointments={this.state.mockAppointments} 
+            updateAppointment={this.updateAppointment}
             delAppointment={this.delAppointment}/>
           <AddAppointment addAppointment={this.addAppointment} />
         </div>        

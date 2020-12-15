@@ -7,8 +7,10 @@ class Appointments extends Component {
       return this.props.appointments.map((appointments) => (
         <AppointmentsItem 
           key={appointments.id} 
-          appointments={appointments} 
-          delAppointment={this.props.delAppointment}/>
+          appointments={appointments}
+          updateAppointment={this.props.updateAppointment} 
+          delAppointment={this.props.delAppointment}
+        />
       ));
   }
 }
